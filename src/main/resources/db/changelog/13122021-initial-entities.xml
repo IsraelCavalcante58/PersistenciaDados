@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+
+
+
+    <changeSet id="T_KEY" author="Leo">
+        <createTable tableName="T_KEY">
+
+            <column name="cd_key" type="BIGINT"></column>
+            <column name="key" type="VARCHAR(255)"></column>
+            <column name="disponivel" type="boolean"></column>
+            <column name="dt_ativacao" type="datetime"></column>
+            <column name="dt_validade" type="datetime"></column>
+            <column name="tmp_duracao_dia" type="int"></column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="T_KEY_PK" author="Leo">
+        <addPrimaryKey columnNames="cd_key" tableName="T_KEY" constraintName="tabela_key_pk"/>
+        <addAutoIncrement columnDataType="BIGINT" columnName="cd_key" incrementBy="1" tableName="T_KEY"/>
+    </changeSet>
+
+    <changeSet id="T_USUARIO" author="Leo">
+        <createTable tableName="T_USUARIO">
+
+            <column name="cd_usuario" type="BIGINT"></column>
+            <column name="nome_usuario" type="VARCHAR(255)"></column>
+            <column name="senha_usuario" type="VARCHAR(255)"></column>
+            <column name="cd_key" type="BIGINT"></column>
+
+        </createTable>
+    </changeSet>
+
+    <changeSet id="T_USUARIO_PK" author="Leo">
+        <addPrimaryKey columnNames="cd_usuario" tableName="T_USUARIO" constraintName="tabela_usuario_pk"/>
+        <addAutoIncrement columnDataType="BIGINT" columnName="cd_usuario" incrementBy="1" tableName="T_USUARIO"/>
+    </changeSet>
+
+    <changeSet id="fk_t_usuario_t_key" author="Leo">
+        <addForeignKeyConstraint baseColumnNames="cd_key"
+                                 baseTableName="T_USUARIO"
+                                 constraintName="fk_t_usuario_t_key"
+                                 referencedColumnNames="cd_key"
+                                 referencedTableName="T_KEY"
+
+        />
+    </changeSet>
+
+
+</databaseChangeLog>
