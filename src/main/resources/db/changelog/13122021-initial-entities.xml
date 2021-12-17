@@ -12,7 +12,7 @@
         <createTable tableName="T_KEY">
 
             <column name="cd_key" type="BIGINT"></column>
-            <column name="key" type="VARCHAR(255)"></column>
+            <column name="vl_key" type="VARCHAR(255)"></column>
             <column name="disponivel" type="boolean"></column>
             <column name="dt_ativacao" type="datetime"></column>
             <column name="dt_validade" type="datetime"></column>

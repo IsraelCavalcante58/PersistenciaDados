@@ -1,6 +1,5 @@
 package com.persistenciaDados.model;
 
-import lombok.Generated;
 import lombok.Getter;
 import lombok.Setter;
 
